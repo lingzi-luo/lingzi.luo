@@ -1,7 +1,7 @@
 # Lingzi Luo
 
 **Doctoral Candidate, Social and Behavioral Sciences** · Expected May 2027  
-NYU School of Global Public Health · Advisors: Donna Shelley & Lawrence Yang
+NYU School of Global Public Health
 
 ---
 
