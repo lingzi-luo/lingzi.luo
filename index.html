@@ -5,64 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lingzi Luo — NYU School of Global Public Health</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:       #1c1c1a;
-      --muted:     #5c5c56;
-      --rule:      #ddddd6;
+      --ink:       #1a1a1a;
+      --muted:     #5c5c5c;
+      --rule:      #d8d8d4;
       --accent:    #1a5e8a;
-      --amber:     #b35e00;
-      --bg:        #f8f7f4;
+      --bg:        #fafaf8;
       --surface:   #ffffff;
-      --tag-bg:    #e8f1f8;
-      --serif: 'EB Garamond', Georgia, serif;
-      --sans:  'DM Sans', system-ui, sans-serif;
+      --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+      --sans:  'Inter', system-ui, -apple-system, sans-serif;
       --t: 0.2s ease;
     }
     [data-theme="dark"] {
-      --ink:       #e8e7e2;
-      --muted:     #9a9a92;
-      --rule:      #333330;
+      --ink:       #e8e8e4;
+      --muted:     #9a9a94;
+      --rule:      #2e2e2c;
       --accent:    #6aaddc;
-      --amber:     #f0a050;
-      --bg:        #141412;
-      --surface:   #1e1e1b;
-      --tag-bg:    #1c2f3d;
+      --bg:        #141414;
+      --surface:   #1c1c1a;
     }
 
-    html { font-size: 17px; scroll-behavior: smooth; }
+    html { font-size: 16px; }
     body {
       background: var(--bg); color: var(--ink);
-      font-family: var(--serif); line-height: 1.72;
+      font-family: var(--sans); line-height: 1.6;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
       transition: background var(--t), color var(--t);
     }
 
-    /* NAV */
-    nav {
-      border-bottom: 1px solid var(--rule);
-      position: sticky; top: 0; z-index: 20;
-      background: var(--bg);
-      transition: background var(--t), border-color var(--t);
-    }
-    .nav-inner {
-      max-width: 820px; margin: 0 auto; padding: 1.25rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-name { font-family: var(--serif); font-size: 1rem; color: var(--ink); text-decoration: none; }
-    .nav-right { display: flex; align-items: center; gap: 2rem; }
-    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--sans); font-size: 0.73rem; font-weight: 400;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color var(--t);
-    }
-    .nav-links a:hover { color: var(--ink); }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 3rem 2rem 4rem; }
 
-    /* TOGGLE */
+    /* Header */
+    .top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
     .theme-btn {
       background: none; border: 1px solid var(--rule); border-radius: 2rem;
       cursor: pointer; padding: 0.28rem 0.65rem;
@@ -76,459 +59,390 @@
       letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted);
     }
 
-    /* LAYOUT */
-    .wrap { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
-    section { padding: 3.8rem 0; border-bottom: 1px solid var(--rule); }
-    section:last-of-type { border-bottom: none; }
-    .slabel {
-      font-family: var(--sans); font-size: 0.7rem;
-      letter-spacing: 0.13em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 2rem;
-    }
-
-    /* ABOUT */
-    #about { padding-top: 5rem; }
     h1 {
-      font-family: var(--serif); font-size: 2.75rem; font-weight: 400;
-      line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 0.4rem;
+      font-family: var(--serif); font-size: 2.3rem; font-weight: 500;
+      line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 0.5rem;
+      color: var(--ink);
     }
     .affil {
-      font-family: var(--sans); font-size: 0.85rem;
-      color: var(--muted); font-weight: 300; margin-bottom: 2rem;
+      font-family: var(--sans); font-size: 0.88rem;
+      color: var(--muted); font-weight: 400; line-height: 1.5;
     }
-    .affil a { color: var(--accent); text-decoration: none; }
-    .affil a:hover { text-decoration: underline; }
-    .bio { font-size: 1.05rem; max-width: 660px; }
-    .bio p + p { margin-top: 0.9em; }
-    .hlinks { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
-    .hlinks a {
-      font-family: var(--sans); font-size: 0.8rem; font-weight: 400;
-      letter-spacing: 0.04em; color: var(--accent); text-decoration: none;
-      border-bottom: 1px solid var(--accent); padding-bottom: 1px;
-      transition: opacity var(--t);
-    }
-    .hlinks a:hover { opacity: 0.6; }
+    .affil .expected { display: block; margin-top: 0.2rem; font-size: 0.78rem; color: var(--muted); }
 
-    /* RESEARCH LINES */
-    .r-intro { font-size: 1.05rem; max-width: 660px; margin-bottom: 2.5rem; }
-    .rline {
-      display: grid; grid-template-columns: 2.2rem 1fr;
-      gap: 1rem; padding: 1.5rem 0; border-top: 1px solid var(--rule);
-    }
-    .rnum { font-family: var(--sans); font-size: 0.7rem; color: var(--muted); padding-top: 0.25rem; font-weight: 300; }
-    .rtitle { font-style: italic; display: block; margin-bottom: 0.3rem; }
-    .rdesc { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.58; }
-
-    /* GRANTS */
-    .grant {
-      padding: 1.5rem 0; border-top: 1px solid var(--rule);
-      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
-    }
-    .g-meta { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; font-weight: 300; }
-    .g-role {
-      display: inline-block; margin-bottom: 0.3rem;
-      font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid var(--accent); padding: 0.15rem 0.45rem; font-weight: 400;
-    }
-    .g-title { font-size: 1rem; font-style: italic; display: block; margin-bottom: 0.3rem; }
-    .g-desc { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.55; max-width: 540px; }
-    .g-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
-    .g-amt {
-      font-family: var(--sans); font-size: 0.75rem; font-weight: 500;
-      color: var(--amber); border: 1px solid var(--amber); padding: 0.2rem 0.55rem;
-      white-space: nowrap; letter-spacing: 0.04em;
+    hr {
+      border: none; border-top: 1px solid var(--rule);
+      margin: 2.2rem 0;
     }
 
-    /* PROJECTS */
-    .proj {
-      padding: 1.5rem 0; border-top: 1px solid var(--rule);
-      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+    /* Intro paragraph */
+    .intro {
+      font-family: var(--serif); font-size: 1.08rem;
+      line-height: 1.6; margin-bottom: 1.5rem;
+      color: var(--ink); font-weight: 400;
     }
-    .p-meta { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; font-weight: 300; }
-    .p-title { font-size: 1rem; font-style: italic; display: block; margin-bottom: 0.3rem; }
-    .p-desc { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.55; max-width: 540px; }
-    .tag {
-      font-family: var(--sans); font-size: 0.66rem; font-weight: 400;
+
+    /* Inquiry list */
+    .inq-label {
+      font-family: var(--sans); font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0; color: var(--ink); margin-bottom: 1rem;
+    }
+    .inq { list-style: none; counter-reset: inq; }
+    .inq li {
+      counter-increment: inq;
+      padding: 0.5rem 0 0.5rem 2.2rem;
+      position: relative;
+      font-size: 0.95rem; line-height: 1.55;
+      color: var(--ink); font-weight: 400;
+    }
+    .inq li::before {
+      content: counter(inq);
+      position: absolute; left: 0; top: 0.55rem;
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+      color: var(--muted);
+      width: 1.4rem; height: 1.4rem;
+      border: 1px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+
+    /* Section headings */
+    h3 {
+      font-family: var(--sans); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink); margin-bottom: 1.2rem;
+    }
+
+    /* Tables — README-style */
+    table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--sans); font-size: 0.86rem;
+    }
+    thead th {
+      text-align: left; font-weight: 500; font-size: 0.7rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); padding: 0.55rem 1rem 0.55rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    tbody td {
+      padding: 0.85rem 1rem 0.85rem 0;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      font-weight: 400; color: var(--ink);
+      line-height: 1.5;
+    }
+    tbody td:last-child, thead th:last-child { padding-right: 0; }
+    tbody td strong {
+      font-weight: 600; color: var(--ink);
+      font-family: var(--sans); font-style: normal;
+      font-size: 0.92rem;
+    }
+    tbody td em {
+      font-style: normal; color: var(--muted); font-size: 0.8rem;
+      display: block; margin-top: 0.2rem; font-weight: 400;
+    }
+    .amt {
+      color: var(--ink); font-weight: 500;
+      white-space: nowrap; font-variant-numeric: tabular-nums;
+    }
+    .role { color: var(--accent); white-space: nowrap; font-weight: 500; }
+
+    /* Publications */
+    .pubs { list-style: none; }
+    .pubs li {
+      padding: 0.95rem 0; border-bottom: 1px solid var(--rule);
+      font-family: var(--sans); font-size: 0.85rem; font-weight: 400;
+      color: var(--muted); line-height: 1.55;
+    }
+    .pubs li:last-child { border-bottom: none; }
+    .pubs strong { color: var(--ink); font-weight: 600; }
+    .pubs .ptitle {
+      display: block; font-family: var(--serif); font-style: normal;
+      font-size: 1rem; color: var(--ink); margin: 0.2rem 0; font-weight: 400;
+      line-height: 1.45;
+    }
+    .pubs a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t); }
+    .pubs a:hover { border-color: var(--accent); }
+
+    /* Tools / inline code */
+    .tools { font-family: var(--sans); font-size: 0.88rem; }
+    .tools code {
+      font-family: var(--sans); font-size: 0.78rem;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 0.22rem 0.6rem;
+      border-radius: 3px;
+      margin: 0.18rem 0.25rem 0.18rem 0;
+      display: inline-block;
+      color: var(--ink); font-weight: 500;
+    }
+    .tool-row { margin-bottom: 0.6rem; display: flex; align-items: flex-start; flex-wrap: wrap; gap: 0.2rem; }
+    .tool-label {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
       letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid var(--accent); background: var(--tag-bg);
-      padding: 0.2rem 0.5rem; white-space: nowrap; height: fit-content;
+      color: var(--muted); margin-right: 0.7rem;
+      min-width: 96px; padding-top: 0.4rem;
     }
 
-    /* PUBS */
-    .pub { padding: 1.3rem 0; border-top: 1px solid var(--rule); }
-    .pub-auth { font-family: var(--sans); font-size: 0.82rem; color: var(--muted); font-weight: 300; margin-bottom: 0.2rem; }
-    .pub-auth strong { color: var(--ink); font-weight: 500; }
-    .pub-title { font-size: 0.98rem; font-style: italic; display: block; margin-bottom: 0.2rem; }
-    .pub-venue { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); font-weight: 300; }
-    .pub-venue a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t); }
-    .pub-venue a:hover { border-color: var(--accent); }
-    .wip-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 1.2rem; }
+    /* Contact */
+    .contact {
+      font-family: var(--sans); font-size: 0.88rem;
+      display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+      color: var(--muted); font-weight: 400;
+    }
+    .contact a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t); }
+    .contact a:hover { border-color: var(--accent); }
+    .contact .ico { margin-right: 0.35rem; }
 
-    /* TEACHING */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.5rem; }
-    .col h3 { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-weight: 400; }
-    .litem { padding: 0.9rem 0; border-top: 1px solid var(--rule); }
-    .litem-meta { font-family: var(--sans); font-size: 0.72rem; color: var(--muted); font-weight: 300; display: block; margin-bottom: 0.1rem; }
-    .litem-title { font-size: 0.95rem; display: block; }
-    .litem-sub { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); font-weight: 300; display: block; }
-
-    /* CONTACT */
-    #contact { padding-bottom: 5rem; }
-    .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.5rem; }
-    .ci { padding: 1rem 0; border-top: 1px solid var(--rule); }
-    .clabel { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.3rem; font-weight: 300; }
-    .cval { font-family: var(--sans); font-size: 0.88rem; }
-    .cval a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t); }
-    .cval a:hover { border-color: var(--accent); }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--rule); padding: 1.8rem 0; }
-    .foot { max-width: 820px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-    footer p { font-family: var(--sans); font-size: 0.73rem; color: var(--muted); font-weight: 300; }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      h1 { font-size: 2rem; }
-      .two-col, .cg { grid-template-columns: 1fr; }
-      .grant, .proj { grid-template-columns: 1fr; }
-      .g-right { align-items: flex-start; }
-      .nav-links { display: none; }
-      .foot { flex-direction: column; gap: 0.5rem; text-align: center; }
+    /* Responsive */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      h1 { font-size: 1.9rem; }
+      .wrap { padding: 2rem 1.4rem 3rem; }
+      thead { display: none; }
+      tbody td { display: block; padding: 0.2rem 0; border: none; }
+      tbody tr {
+        display: block; padding: 0.9rem 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      tbody td:first-child { padding-top: 0; }
+      tbody td:last-child { padding-bottom: 0; }
+      .contact { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a class="nav-name" href="#about">Lingzi Luo</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#research">Research</a></li>
-        <li><a href="#grants">Grants</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle colour theme">
-        <span class="icon" id="ti">🌙</span>
-        <span class="lbl"  id="tl">Dark</span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<main>
 <div class="wrap">
 
-  <!-- ABOUT -->
-  <section id="about">
-    <p class="slabel">Doctoral Candidate · NYU GPH · Expected May 2027</p>
-    <h1>Lingzi Luo</h1>
-    <p class="affil">
-      Social and Behavioral Sciences ·
-      <a href="https://publichealth.nyu.edu" target="_blank">NYU School of Global Public Health</a>
-      · Advisors: Donna Shelley &amp; Lawrence Yang
-    </p>
-    <div class="bio">
-      <p>I am a fourth-year doctoral candidate studying how mental health interventions can equitably reach people navigating intersecting social adversities and structural vulnerability — across U.S. and global contexts where stigma, poverty, and constrained service infrastructure compound mental health burden.</p>
-      <p>My work spans mental health equity, community-engaged intervention science, and implementation research, with active projects in the United States, Brazil, and Botswana. I bring prior experience in clinical research coordination, global health policy (WHO), and community-based program evaluation.</p>
-    </div>
-    <div class="hlinks">
-      <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
-      <a href="https://github.com/lingzi-luo" target="_blank">GitHub</a>
-      <a href="mailto:lingzi.luo@nyu.edu">lingzi.luo@nyu.edu</a>
-    </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section id="research">
-    <p class="slabel">Research Program</p>
-    <p class="r-intro">My research program examines how mental health interventions can equitably reach people navigating intersecting social adversities and structural vulnerability across U.S. and global contexts, where stigma, poverty, and constrained service infrastructure compound mental health burden. I pursue this through three integrated lines of inquiry:</p>
+  <!-- Header -->
+  <div class="top">
     <div>
-      <div class="rline">
-        <span class="rnum">I</span>
-        <div>
-          <span class="rtitle">Structural vulnerability, stigma, and mental health burden</span>
-          <span class="rdesc">Characterizing how structural vulnerability and stigma shape mental health burden and help-seeking in response to adverse life events — examining how intersecting social positions mediate trajectories of distress and recovery over time.</span>
-        </div>
-      </div>
-      <div class="rline">
-        <span class="rnum">II</span>
-        <div>
-          <span class="rtitle">Community-engaged intervention development</span>
-          <span class="rdesc">Informing and co-developing mental health and anti-stigma interventions with affected communities and other stakeholders, using frameworks including Intervention Mapping and participatory design to center community priorities and lived experience.</span>
-        </div>
-      </div>
-      <div class="rline">
-        <span class="rnum">III</span>
-        <div>
-          <span class="rtitle">Methodological and implementation expertise</span>
-          <span class="rdesc">Contributing statistical and implementation science expertise to complex behavioral health intervention trials — including factorial and hybrid effectiveness-implementation designs, digital health tools, longitudinal panel modeling, and REDCap-integrated data infrastructure.</span>
-        </div>
-      </div>
+      <h1>Lingzi Luo</h1>
+      <p class="affil">
+        Doctoral Candidate, Social and Behavioral Sciences<br>
+        NYU School of Global Public Health
+        <span class="expected">Expected May 2027</span>
+      </p>
     </div>
-  </section>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle colour theme">
+      <span class="icon" id="ti">🌙</span>
+      <span class="lbl" id="tl">Dark</span>
+    </button>
+  </div>
 
-  <!-- GRANTS -->
-  <section id="grants">
-    <p class="slabel">Grants &amp; Funded Research</p>
+  <hr>
 
-    <div class="grant">
+  <!-- Research statement -->
+  <p class="intro">
+    My research examines how behavioral health interventions can equitably reach people navigating intersecting social adversities and structural vulnerability — across U.S. and global contexts where stigma, poverty, and constrained service infrastructure compound mental health burden.
+  </p>
+
+  <p class="inq-label">Three integrated lines of inquiry:</p>
+  <ol class="inq">
+    <li>Characterizing how structural vulnerability and stigma shape mental health burden and help-seeking in response to adverse life events.</li>
+    <li>Informing or co-developing mental health and anti-stigma interventions with affected communities and other stakeholders.</li>
+    <li>Contributing methodological and implementation expertise to complex behavioral health interventions, including factorial and hybrid effectiveness-implementation designs.</li>
+  </ol>
+
+  <hr>
+
+  <!-- Active Projects -->
+  <h3>Active Projects</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">Project</th>
+        <th>Setting</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>MOSTQUITS</strong>
+          <em>HIV smoking cessation among people living with HIV who smoke (16-arm factorial RCT)</em>
+        </td>
+        <td>USA<br><em>NIH R01CA268932</em></td>
+        <td><span class="role">Data Analyst</span></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Diz Aí</strong>
+          <em>WhatsApp-based group CBT for low-income university students, paired with conditional cash transfer and peer support (4-arm cluster RCT)</em>
+        </td>
+        <td>Brazil<br><em>GACD · UK MRC</em></td>
+        <td><span class="role">Consultant &amp; Qualitative Lead</span></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>WMM Botswana</strong>
+          <em>Stigma experiences among cervical cancer survivors living with and without HIV (qualitative, intervention development)</em>
+        </td>
+        <td>Botswana<br><em>NCI U01CA275032</em></td>
+        <td><span class="role">Research Lead</span></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Dissertation</strong>
+          <em>Mental health trajectories following adverse life events</em>
+        </td>
+        <td>USA<br><em>USC/UAS · NYU</em></td>
+        <td><span class="role">PI</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- Grants -->
+  <h3>Selected Fellowships &amp; Grants</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">Role</th>
+        <th>Award</th>
+        <th style="width: 22%;">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="role">PI</span></td>
+        <td>USC/CESR Free Minutes Award — Understanding America Study</td>
+        <td><span class="amt">$50,000 in-kind</span></td>
+      </tr>
+      <tr>
+        <td><span class="role">PI</span></td>
+        <td>NYU GPH Research Fund — Dissertation</td>
+        <td><span class="amt">$4,500</span></td>
+      </tr>
+      <tr>
+        <td><span class="role">Primary Grant Writer</span></td>
+        <td>NCI U01CA275032-02S1 — Anti-stigma intervention, Botswana</td>
+        <td><span class="amt">$219,374</span></td>
+      </tr>
+      <tr>
+        <td><span class="role">PI</span></td>
+        <td>Li Ka Shing Foundation — Global Mental Health Fellowship</td>
+        <td><span class="amt">$11,000</span></td>
+      </tr>
+      <tr>
+        <td><span class="role">Co-I</span></td>
+        <td>Missouri Foundation for Health — Sickle cell disease</td>
+        <td><span class="amt">$75,000</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- Publications -->
+  <h3>Selected Publications</h3>
+  <ul class="pubs">
+    <li>
+      <strong>Luo, L.</strong>, Kapur, R., et al. (2026).
+      <span class="ptitle">Strategies for integrating NCD interventions in HIV/TB care in LMICs: A scoping review.</span>
+      <em>BMJ Global Health</em>. <a href="https://doi.org/10.1136/bmjgh-2025-019577" target="_blank">doi →</a>
+    </li>
+    <li>
+      <strong>Luo, L.</strong>, Li, G., Tang, W., Wu, D., &amp; Hall, B. (2024).
+      <span class="ptitle">Intention to seek mental health services during the 2022 Shanghai COVID-19 lockdown.</span>
+      <em>JMIR Formative Research</em>. <a href="https://doi.org/10.2196/51470" target="_blank">doi →</a>
+    </li>
+    <li>
+      Rouhani, S., <strong>Luo, L.</strong>, et al. (2024).
+      <span class="ptitle">Epidemiology of drug arrests in the US: Evidence from NSDUH, 2015–2019.</span>
+      <em>Preventive Medicine</em>. <a href="https://doi.org/10.1016/j.ypmed.2024.108058" target="_blank">doi →</a>
+    </li>
+    <li>
+      Yang, L., <strong>Luo, L.</strong>, Choi, J., Ling, R., &amp; Kleinman, A. (2024).
+      <span class="ptitle">Mental health stigma.</span>
+      <em>International Encyclopedia of Public Health</em>, 3rd ed.
+    </li>
+  </ul>
+
+  <hr>
+
+  <!-- Teaching -->
+  <h3>Teaching</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 38%;">Course</th>
+        <th>Role &amp; Level</th>
+        <th style="width: 22%;">Terms</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Health and Society in the Global Context</strong></td>
+        <td>Adjunct Faculty · Undergraduate</td>
+        <td><em>Fall 2024, Fall 2025</em></td>
+      </tr>
+      <tr>
+        <td><strong>Introduction to Epidemiology</strong></td>
+        <td>Instructor · Undergraduate / Master<br><em>PQAR Summer Research Program</em></td>
+        <td><em>Summer 2025</em></td>
+      </tr>
+      <tr>
+        <td><strong>Epidemiology</strong></td>
+        <td>Recitation Adjunct · Master / Doctoral</td>
+        <td><em>Fall 2023, 2024, 2025</em></td>
+      </tr>
+      <tr>
+        <td><strong>Intermediate Epidemiology</strong></td>
+        <td>Recitation Adjunct · Master / Doctoral</td>
+        <td><em>Spring 2024, Spring 2026</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dissemination and Implementation Science</strong></td>
+        <td>Teaching Assistant · Master<br><em>Instructor: Donna Shelley</em></td>
+        <td><em>Spring 2023</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- Methods & Tools -->
+  <h3>Methods &amp; Tools</h3>
+  <div class="tools">
+    <div class="tool-row">
+      <span class="tool-label">Quantitative</span>
       <div>
-        <span class="g-role">Principal Investigator</span>
-        <span class="g-title">USC Center for Economic and Social Research — Free Minutes Award</span>
-        <p class="g-desc">Competitive data-collection award through the Understanding America Study, a national probability-based internet panel supporting dissertation data collection, with full annual conference travel support. July 2025.</p>
+        <code>R</code> <code>Stata</code> <code>SAS</code> <code>REDCap</code> <code>Qualtrics</code>
       </div>
-      <div class="g-right"><span class="g-amt">$50,000 in-kind</span></div>
     </div>
-
-    <div class="grant">
+    <div class="tool-row">
+      <span class="tool-label">Designs</span>
       <div>
-        <span class="g-role">Principal Investigator</span>
-        <span class="g-title">NYU School of Global Public Health Research Fund</span>
-        <p class="g-desc">Awarded from the NYU GPH Office of Research to support dissertation data collection. April 2025.</p>
+        <code>Factorial &amp; hybrid trials</code> <code>Qualitative methods</code>
       </div>
-      <div class="g-right"><span class="g-amt">$4,500</span></div>
     </div>
-
-    <div class="grant">
+    <div class="tool-row">
+      <span class="tool-label">Qualitative</span>
       <div>
-        <span class="g-role">Primary Grant Writer &amp; GRA</span>
-        <span class="g-title">NCI U01CA275032-02S1 — Cervical Cancer Stigma &amp; Anti-Stigma Intervention, Botswana</span>
-        <p class="g-desc">Conceptualized and secured a one-year NCI administrative supplement to co-develop an anti-stigma intervention for cervical cancer survivors in Botswana via a community-engaged approach using Intervention Mapping. PIs: Surbhi Grover &amp; Katharine Rendle. Sep 2023 – Aug 2024.</p>
+        <code>Dedoose</code> <code>NVivo</code> <code>Atlas.ti</code>
       </div>
-      <div class="g-right"><span class="g-amt">$219,374</span></div>
     </div>
-
-    <div class="grant">
+    <div class="tool-row">
+      <span class="tool-label">Spatial</span>
       <div>
-        <span class="g-role">Principal Investigator</span>
-        <span class="g-title">Li Ka Shing Foundation — Global Mental Health and Wellness Fellowship</span>
-        <p class="g-desc">Independent fellowship to examine mental health service intentions during the 2022 Shanghai COVID-19 lockdown. Faculty mentors: Brian Hall &amp; Lawrence Yang. May – Aug 2023.</p>
-      </div>
-      <div class="g-right"><span class="g-amt">$11,000</span></div>
-    </div>
-
-    <div class="grant">
-      <div>
-        <span class="g-role">Co-Investigator</span>
-        <span class="g-title">Missouri Foundation for Health — Opportunities Fund</span>
-        <p class="g-desc">Funded to investigate service linkages and implementation for children with sickle cell disease in Missouri. PI: Catherine Hoyt, PhD. 2022 – 2024.</p>
-      </div>
-      <div class="g-right"><span class="g-amt">$75,000</span></div>
-    </div>
-
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="slabel">Active Research Projects</p>
-
-    <div class="proj">
-      <div>
-        <p class="p-meta">Brazil · GACD · LSE / NYU</p>
-        <span class="p-title">Diz Aí — Digital Group CBT for University Students</span>
-        <p class="p-desc">WhatsApp-based group cognitive behavioral therapy for low-income university students in Brazil, embedded within a conditional cash transfer and peer support program. Serving as research consultant and qualitative research lead: power estimation, four-arm cluster-RCT design, interview guide development, and supervision of qualitative analysis. PI: Sara Evans-Lacko (LSE).</p>
-      </div>
-      <span class="tag">Active</span>
-    </div>
-
-    <div class="proj">
-      <div>
-        <p class="p-meta">United States · NIH R01CA268932</p>
-        <span class="p-title">MOSTQUITS — HIV Smoking Cessation Optimization Trial</span>
-        <p class="p-desc">Statistician on a 16-arm factorial trial optimizing smoking cessation for people living with HIV. Built R-based pipelines for data quality control, participant tracking, and REDCap API integration. Supporting baseline characterization using latent class analysis of behavioral and psychosocial profiles.</p>
-      </div>
-      <span class="tag">Active</span>
-    </div>
-
-    <div class="proj">
-      <div>
-        <p class="p-meta">Botswana · NCI U01CA275032</p>
-        <span class="p-title">WMM — Cervical Cancer Survivorship &amp; Stigma</span>
-        <p class="p-desc">Research lead on a mixed-methods study of stigma barriers and facilitators to care adherence among cervical cancer survivors in Botswana. Designed qualitative instruments using Intervention Mapping; supervised data collection and analysis. Collaborators: Yang, Grover, Rendle, Montgomery.</p>
-      </div>
-      <span class="tag">Active</span>
-    </div>
-
-    <div class="proj">
-      <div>
-        <p class="p-meta">United States · Dissertation · USC/UAS &amp; NYU-funded</p>
-        <span class="p-title">Mental Health Trajectories Following Adverse Life Events</span>
-        <p class="p-desc">Dissertation examining heterogeneous mental health responses to health, financial, employment, and bereavement adversities using ~9,500 participants across 12 monthly panel waves. Methods: within-between random effects decomposition, distributed lag modeling, group-based trajectory modeling, and causal mediation analysis.</p>
-      </div>
-      <span class="tag">Dissertation</span>
-    </div>
-
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <p class="slabel">Peer-Reviewed Publications</p>
-
-    <div class="pub">
-      <p class="pub-auth">Chen, J., Yang, J., Liu, S., …, <strong>Luo, L.</strong>, &amp; Xu, D.</p>
-      <span class="pub-title">Multiphase optimization implementation strategy for tobacco cessation interventions in primary care clinics: A cluster-randomized type 3 hybrid effectiveness-implementation trial</span>
-      <p class="pub-venue"><em>Tobacco Induced Diseases</em>, 24(43), 2026 · <a href="https://doi.org/10.18332/tid/217143" target="_blank">doi →</a></p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth"><strong>Luo, L.</strong>, Kapur, R., Guevara, G., Namusisi, K., Armstrong-Hough, M., Moucheraud, C., Purtle, J., Yang, L., Lappen, H., Raghavan, R., &amp; Shelley, D.</p>
-      <span class="pub-title">Strategies for integrating noncommunicable disease interventions in HIV and TB care in LMICs: A scoping review</span>
-      <p class="pub-venue"><em>BMJ Global Health</em>, 11(2), 2026 · <a href="https://doi.org/10.1136/bmjgh-2025-019577" target="_blank">doi →</a></p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth"><strong>Luo, L.</strong>, Li, G., Tang, W., Wu, D., &amp; Hall, B.</p>
-      <span class="pub-title">Intention to seek mental health services during the 2022 Shanghai COVID-19 city-wide lockdown: Web-based cross-sectional study</span>
-      <p class="pub-venue"><em>JMIR Formative Research</em>, 8(e51470), 2024 · <a href="https://doi.org/10.2196/51470" target="_blank">doi →</a></p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth">Rouhani, S., <strong>Luo, L.</strong>, Byregowda, H., Weaver, N., &amp; Park, J.</p>
-      <span class="pub-title">Epidemiology of drug arrests in the United States: Evidence from the National Survey on Drug Use and Health, 2015–2019</span>
-      <p class="pub-venue"><em>Preventive Medicine</em>, 185, 2024 · <a href="https://doi.org/10.1016/j.ypmed.2024.108058" target="_blank">doi →</a></p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth">Yang, L., <strong>Luo, L.</strong>, Choi, J., Ling, R., &amp; Kleinman, A.</p>
-      <span class="pub-title">Principles: Mental health stigma</span>
-      <p class="pub-venue"><em>International Encyclopedia of Public Health</em>, 3rd ed., Academic Press / Elsevier, 2024</p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth">Hoyt, C. R., <strong>Luo, L.</strong>, Rice, H. E., Shivakumar, N., et al.</p>
-      <span class="pub-title">"Everyone screens to some extent": Barriers and facilitators of developmental screening among children with sickle cell disease</span>
-      <p class="pub-venue"><em>Pediatric Blood &amp; Cancer</em>, e31060, 2024 · <a href="https://doi.org/10.1002/pbc.31060" target="_blank">doi →</a></p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth">Siewny, L., King, A., …, <strong>Luo, L.</strong>, et al.</p>
-      <span class="pub-title">Impact of an individualized pain plan to treat sickle cell disease vaso-occlusive episodes in the emergency department</span>
-      <p class="pub-venue"><em>Blood Advances</em>, 8(20), 5330–5338, 2024 · <a href="https://doi.org/10.1182/bloodadvances.2023012439" target="_blank">doi →</a></p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth" style="font-style:italic; color: var(--muted);">+ 5 additional peer-reviewed publications (2021–2023). Full list on <a href="https://scholar.google.com" target="_blank" style="color:var(--accent);">Google Scholar</a>.</p>
-    </div>
-
-    <p class="wip-label">Work in Progress</p>
-
-    <div class="pub">
-      <p class="pub-auth">Bass, J., <strong>Luo, L.</strong>, Cleland, C., et al.</p>
-      <span class="pub-title">Assessing barriers and facilitators to implementing mental health task-sharing interventions: Psychometric evaluation of BeFITS-MH in South Africa, Nepal, and Chile</span>
-      <p class="pub-venue"><em>Implementation Science Communications</em> — Revise &amp; Resubmit</p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth">Ziebold, C., Araya, R., …, <strong>Luo, L.</strong>, …, Evans-Lacko, S.</p>
-      <span class="pub-title">Increasing engagement with digital group mental health interventions among low-income university students</span>
-      <p class="pub-venue"><em>BMJ Open</em> — Under Review</p>
-    </div>
-
-    <div class="pub">
-      <p class="pub-auth"><strong>Luo, L.</strong>, Montgomery, A., Ho-Foster, A., Eaton, S., …, Grover, S., Rendle, K. A., &amp; Yang, L. H.</p>
-      <span class="pub-title">Stigma and care adherence among cervical cancer survivors in Botswana: A qualitative study</span>
-      <p class="pub-venue">Fully drafted</p>
-    </div>
-
-  </section>
-
-  <!-- TEACHING -->
-  <section id="teaching">
-    <p class="slabel">Teaching &amp; Service</p>
-    <div class="two-col">
-      <div class="col">
-        <h3>Teaching</h3>
-        <div class="litem">
-          <span class="litem-meta">Adjunct Faculty · Undergraduate · NYU</span>
-          <span class="litem-title">Health and Society in the Global Context</span>
-          <span class="litem-sub">Fall 2024, Fall 2025</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Instructor · Undergraduate / Master · NYU</span>
-          <span class="litem-title">Introduction to Epidemiology</span>
-          <span class="litem-sub">Summer 2025 (PQAR Summer Research Program)</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Recitation Adjunct · Master / Doctoral · NYU</span>
-          <span class="litem-title">Epidemiology</span>
-          <span class="litem-sub">Fall 2023, 2024, 2025</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Recitation Adjunct · Master / Doctoral · NYU</span>
-          <span class="litem-title">Intermediate Epidemiology</span>
-          <span class="litem-sub">Spring 2024, Spring 2026</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Teaching Assistant · Master · NYU</span>
-          <span class="litem-title">Dissemination and Implementation Science</span>
-          <span class="litem-sub">Spring 2023 · Instructor: Donna Shelley</span>
-        </div>
-      </div>
-
-      <div class="col">
-        <h3>Service &amp; Skills</h3>
-        <div class="litem">
-          <span class="litem-meta">NYU GPH · Feb 2023 – Present</span>
-          <span class="litem-title">Doctoral Program Ambassador</span>
-          <span class="litem-sub">Student–administration liaison; prospective student mentorship</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Ad hoc reviewer</span>
-          <span class="litem-title">Implementation Science Communications · BJPsych Open · Cambridge Prisms: Global Mental Health · Frontiers in Psychiatry · The Gerontologist · APHA 2024</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Quantitative</span>
-          <span class="litem-title">R · Stata · SAS · REDCap (advanced) · Qualtrics · ArcGIS</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Qualitative</span>
-          <span class="litem-title">Dedoose · NVivo · ATLAS.ti</span>
-        </div>
-        <div class="litem">
-          <span class="litem-meta">Languages</span>
-          <span class="litem-title">Mandarin (native) · English (professional) · Spanish (reading)</span>
-        </div>
+        <code>ArcGIS</code> <code>QGIS</code>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="slabel">Contact</p>
-    <div class="cg">
-      <div class="ci">
-        <span class="clabel">Email</span>
-        <span class="cval"><a href="mailto:lingzi.luo@nyu.edu">lingzi.luo@nyu.edu</a></span>
-      </div>
-      <div class="ci">
-        <span class="clabel">Institution</span>
-        <span class="cval">NYU School of Global Public Health<br>708 Broadway, New York, NY 10003</span>
-      </div>
-      <div class="ci">
-        <span class="clabel">GitHub</span>
-        <span class="cval"><a href="https://github.com/lingzi-luo" target="_blank">github.com/lingzi-luo</a></span>
-      </div>
-      <div class="ci">
-        <span class="clabel">Google Scholar</span>
-        <span class="cval"><a href="https://scholar.google.com" target="_blank">Scholar profile →</a></span>
-      </div>
-    </div>
-  </section>
+  <hr>
+
+  <!-- Contact -->
+  <div class="contact">
+    <span>📧 <a href="mailto:lingzi.luo@nyu.edu">lingzi.luo@nyu.edu</a></span>
+    <span>🎓 <a href="#" target="_blank">Google Scholar</a></span>
+    <span>🌐 <a href="https://lingzi-luo.github.io" target="_blank">lingzi-luo.github.io</a></span>
+  </div>
 
 </div>
-</main>
-
-<footer>
-  <div class="foot">
-    <p>Lingzi Luo · NYU School of Global Public Health · Updated May 2026</p>
-    <p><a href="https://github.com/lingzi-luo/lingzi-luo.github.io" target="_blank">View source on GitHub →</a></p>
-  </div>
-</footer>
 
 <script>
   function toggleTheme() {
